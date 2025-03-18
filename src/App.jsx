@@ -5,20 +5,28 @@ import Dashboard from "./Components/Dashboard";
 import TransactionHistory from "./Components/TransactionHistory";
 import Footer from "./Components/Footer";
 import AddTransaction from "./Components/AddTransaction";
+import { ClerkProvider, SignedIn, SignedOut, RedirectToSignIn } from "@clerk/clerk-react";
 
-
-
+// Get Clerk frontend API from environment variable
+const clerkFrontendApi = process.env.CLERK_FRONTEND_API;
 
 function App() {
   return (
-    <div>
-      <Header/>
-      <Hero/>
-      <Dashboard/>
-      <TransactionHistory/>
-      <AddTransaction/>
-      <Footer/>
-    </div>
+    <ClerkProvider frontendApi={clerkFrontendApi}>
+      <div>
+        <Header />
+        <Hero />
+        <SignedIn>
+          <Dashboard />
+          <TransactionHistory />
+          <AddTransaction />
+        </SignedIn>
+        <SignedOut>
+          <RedirectToSignIn />
+        </SignedOut>
+        <Footer />
+      </div>
+    </ClerkProvider>
   );
 }
 
