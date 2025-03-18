@@ -8,7 +8,7 @@ import AddTransaction from "./Components/AddTransaction";
 import { ClerkProvider, SignedIn, SignedOut, RedirectToSignIn } from "@clerk/clerk-react";
 
 // Get Clerk frontend API from environment variable
-const clerkFrontendApi = process.env.CLERK_FRONTEND_API;
+const clerkFrontendApi = process.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 function App() {
   return (
