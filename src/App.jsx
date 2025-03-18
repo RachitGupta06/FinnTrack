@@ -7,12 +7,10 @@ import Footer from "./Components/Footer";
 import AddTransaction from "./Components/AddTransaction";
 import { ClerkProvider, SignedIn, SignedOut, RedirectToSignIn } from "@clerk/clerk-react";
 
-// Get Clerk frontend API from environment variable
-const clerkFrontendApi = process.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 function App() {
   return (
-    <ClerkProvider frontendApi={clerkFrontendApi}>
+    <ClerkProvider>
       <div>
         <Header />
         <Hero />
